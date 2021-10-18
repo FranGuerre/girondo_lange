@@ -57,9 +57,12 @@ a:hover {
   flex-wrap: nowrap;
   transition: left 0.5s; }
   .contenidos .contenido {
-    width: 360px;
+    width: 100%;
     height: 800px;
     border: 1px solid #704884; }
+    .contenidos .contenido .contenido_caja {
+      width: 1500px;
+      max-width: 100%; }
 
 .footer {
   width: 100%;

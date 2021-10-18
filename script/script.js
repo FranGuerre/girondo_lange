@@ -9,7 +9,7 @@ let contenido_2 = document.getElementById("contenido-2");
 function menuScroll() {
   menu_scroll.forEach((menu, i) => {
     menu.addEventListener("click",(e) => {
-      if(e.target.classList.contains("menu-scroll__opcion"))
+      if(e.target.classList.contains("menu-scroll__opcion")) {
         let menu_activo = e.target.parentElement;
         // menu_id obtiene del id que menu está siendo utilizado
         let menu_id = menu_activo.id;
@@ -17,7 +17,9 @@ function menuScroll() {
         // child_index obtiene el índice del child para luego utilizarlo para modificar la posición
         let child_index = Array.prototype.indexOf.call(menu_activo.children, e.target);
 
-        document.getElementById(`contenido-${menu_id}`).style.left = ((child_index) * -360) + "px";
+        let width_contenido = window.getComputedStyle(document.getElementById(`contenido-${menu_id}`).children[0]).getPropertyValue('width');
+        width_contenido = width_contenido.replace("px","");        
+        document.getElementById(`contenido-${menu_id}`).style.left = (child_index * -width_contenido) + "px";
       }
     });
   });
